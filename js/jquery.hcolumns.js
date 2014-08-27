@@ -107,7 +107,6 @@
         },
 
         _addColumnList: function(list, columnView) {
-            console.log('ADD COLUMN')
             var self = (!columnView) ? this : columnView;
 
             var ListElm = $("<ul></ul>");
