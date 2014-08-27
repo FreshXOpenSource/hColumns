@@ -107,6 +107,7 @@
         },
 
         _addColumnList: function(list, columnView) {
+            console.log('ADD COLUMN')
             var self = (!columnView) ? this : columnView;
 
             var ListElm = $("<ul></ul>");
@@ -168,6 +169,11 @@
 
             // scroll to the most right position (the place shows the latest click result)
             $(columnView.settings.container_node).scrollLeft( $(".column-view-composition").width() );
+            
+            var columnViewEl = ColumnElm.parents(".column-view-container");
+            if(typeof $(columnViewEl).data('next') === 'function') {
+                columnViewEl.data('next')();
+            }
         }
     };   
 
