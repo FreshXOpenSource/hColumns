@@ -84,7 +84,7 @@
             });
         },
 
-        _entryClick: function() {
+        _entryClick: function(callback) {
             var columnView = $(this).parents(".column-view-container").data("hColumn");
 
             var current_container = $(this).parents(".column-view-container");
@@ -103,7 +103,7 @@
             $(this).addClass("active");
 
             // redriect to different process model
-            return columnView.handlers[current_node_type](columnView, this, current_node_data);
+            return columnView.handlers[current_node_type](columnView, this, current_node_data, callback);
         },
 
         _addColumnList: function(list, columnView) {
@@ -168,11 +168,6 @@
 
             // scroll to the most right position (the place shows the latest click result)
             $(columnView.settings.container_node).scrollLeft( $(".column-view-composition").width() );
-            
-            var columnViewEl = ColumnElm.parents(".column-view-container");
-            if(typeof $(columnViewEl).data('next') === 'function') {
-                columnViewEl.data('next')();
-            }
         }
     };   
 
