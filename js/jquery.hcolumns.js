@@ -103,7 +103,7 @@
             $(this).addClass("active");
 
             // redriect to different process model
-            return columnView.handlers[current_node_type](columnView, this, current_node_data, callback);
+            return columnView.handlers[current_node_type](columnView, this, current_node_data, false, callback);
         },
 
         _addColumnList: function(list, columnView) {
