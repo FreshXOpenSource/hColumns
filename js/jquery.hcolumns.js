@@ -112,7 +112,7 @@
             var ListElm = $("<ul></ul>");
 
             if (list.length === 0) {
-                var NoContentElm = $("<p></p>").text(columnView.settings.noContentString);
+                var NoContentElm = $("<p></p>").text(self.settings.noContentString);
 
                 return self._addColumn(NoContentElm, self);
             }
