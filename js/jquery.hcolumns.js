@@ -46,7 +46,7 @@
             // return methods to the chain
             return this.each(function(){
                 var self = $(this),
-                    data = self.data("columnView");
+                    data = self.data("hColumn");
                 
                 // bind settings to columnview
                 methods.settings = settings;
@@ -70,7 +70,8 @@
                     $("<div></div>").addClass("column-view-composition").appendTo(self);
 
                     // each node clicked should call this function
-                    self.on("click", ".column ul li:not('.search')", settings.columnView._entryClick);
+                    self.off("click.hColumn", ".column ul li:not('.search')");
+                    self.on("click.hColumn", ".column ul li:not('.search')", settings.columnView._entryClick);
                     
                     // inital load
                     settings.nodeSource(null, function(err, data) {
