@@ -127,15 +127,16 @@
                 var EntryIconElm = $(document.createElement('i')).addClass( self.settings.indicators[list[i].type] );
                     
                 // we build the node entry
-    			EntryElm[0].appendChild( document.createTextNode(list[i].label) );
-    			EntryElm[0].appendChild( EntryIconElm[0] );
+    		EntryElm[0].appendChild( document.createTextNode(list[i].label) );
+    		EntryElm[0].appendChild( EntryIconElm[0] );
     				
-    			ListElm[0].appendChild(EntryElm[0]);
-    		}
+   		ListElm[0].appendChild(EntryElm[0]);
+    	    }
 	
-	        ListElm.on('scroll', function(event) {
-	            return false;  
-	        });
+	    ListElm.on('scroll', function(event) {
+	        event.stopPropagation();
+	        return false;  
+	    });
 	        
             return self._addColumn(ListElm, self);
         },
