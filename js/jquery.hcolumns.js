@@ -134,7 +134,7 @@
     		}
 	
 	        ListElm.on('scroll', function(event) {
-	            event.stopPropagation();    
+	            return false;  
 	        });
 	        
             return self._addColumn(ListElm, self);
