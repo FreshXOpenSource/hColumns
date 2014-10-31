@@ -104,7 +104,7 @@
             $(this).addClass("active");
 
             // redriect to different process model
-            return columnView.handlers[current_node_type](columnView, this, current_node_data, false, callback);
+            return columnView.handlers[current_node_type](columnView, this, current_node_data, current_node_type, callback);
         },
 
         _addColumnList: function(list, columnView) {
@@ -125,9 +125,10 @@
     		    // we create the element
                	var EntryElm = $(document.createElement('li')).data("node-id", list[i].id).data("node-type", list[i].type).data("node-data", list[i]).attr('title', list[i].label);
                 var EntryIconElm = $(document.createElement('i')).addClass( self.settings.indicators[list[i].type] );
+                var LabelElm = $(document.createElement('span')).addClass('listLabel').html(list[i].label);
                     
                 // we build the node entry
-    		EntryElm[0].appendChild( document.createTextNode(list[i].label) );
+    		EntryElm[0].appendChild( LabelElm[0] );
     		EntryElm[0].appendChild( EntryIconElm[0] );
     				
    		ListElm[0].appendChild(EntryElm[0]);
